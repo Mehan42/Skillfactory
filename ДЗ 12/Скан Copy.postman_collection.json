@@ -1,0 +1,392 @@
+{
+	"info": {
+		"_postman_id": "4ba2c422-227e-4c3c-9879-1d4719a6a8c7",
+		"name": "Скан Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43345427"
+	},
+	"item": [
+		{
+			"name": "Скан Интерфакс",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const testType = pm.iterationData.get(\"test_type\");\r",
+							"\r",
+							"if (testType === \"positive\") {\r",
+							"    pm.test(\"Status 200\", () => pm.response.to.have.status(200));\r",
+							"    // Установка токена\r",
+							"} \r",
+							"else {\r",
+							"    pm.test(\"Status 400 or 401\", () => pm.expect(pm.response.code).to.be.oneOf([400, 401]));\r",
+							"}\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"if (response && response.token) {\r",
+							"    pm.collectionVariables.set(\"My_key\", response.token);\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Негативный тест: неверный логин или пароль\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.success).to.be.false;\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{My_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"{{test_log}}\",\r\n    \"password\": \"{{Test_pas}}\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gateway.scan-interfax.ru/api/v1/account/login",
+					"protocol": "https",
+					"host": [
+						"gateway",
+						"scan-interfax",
+						"ru"
+					],
+					"path": [
+						"api",
+						"v1",
+						"account",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "balance",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"if (response && typeof response.balance !== undefined) {\r",
+							"    pm.collectionVariables.set(\"current_balance\", response.balance);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{My_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"unlimited\": true,\r\n  \"balance\": 0,\r\n  \"searchTermCost\": 0,\r\n  \"searchRateBlockPeriod\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gateway.scan-interfax.ru/api/v1/account/balance",
+					"protocol": "https",
+					"host": [
+						"gateway",
+						"scan-interfax",
+						"ru"
+					],
+					"path": [
+						"api",
+						"v1",
+						"account",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "subjects",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"if (response && response.subjects && response.subjects.length > 0) {\r",
+							"    pm.collectionVariables.set(\"subjects_name1\", response.subjects[0].name);\r",
+							"    if (response.subjects.length > 1) {\r",
+							"        pm.collectionVariables.set(\"subjects_name2\", response.subjects[1].name);\r",
+							"    }\r",
+							"    if (response.subjects.length > 2) {\r",
+							"        pm.collectionVariables.set(\"subjects_name3\", response.subjects[2].name);\r",
+							"    }\r",
+							"}\r",
+							"if (response && typeof response.totalCount !== undefined) {\r",
+							"    pm.collectionVariables.set(\"subjects_total\", response.totalCount);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{My_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "index",
+						"value": "0",
+						"type": "text"
+					},
+					{
+						"key": "pageSize",
+						"value": "5",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"subjects\": [\r\n    {\r\n      \"subjectId\": 0,\r\n      \"name\": \"string\",\r\n      \"parentId\": 0\r\n    }\r\n  ],\r\n  \"totalCount\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gateway.scan-interfax.ru/api/v1/entities/subjects?index=0&pageSize=5",
+					"protocol": "https",
+					"host": [
+						"gateway",
+						"scan-interfax",
+						"ru"
+					],
+					"path": [
+						"api",
+						"v1",
+						"entities",
+						"subjects"
+					],
+					"query": [
+						{
+							"key": "index",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filterId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"if (response && Array.isArray(response) && response.length > 0) {\r",
+							"    if (response[0] && response[0].ok && response[0].ok.source && response[0].ok.source.name) {\r",
+							"        pm.collectionVariables.set(\"news_agent_1\", response[0].ok.source.name);\r",
+							"    }\r",
+							"    if (response.length > 1 && response[1] && response[1].ok && response[1].ok.source && response[1].ok.source.name) {\r",
+							"        pm.collectionVariables.set(\"news_agent_2\", response[1].ok.source.name);\r",
+							"    }\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{My_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ids\": [\r\n    \"1:0JPQqdGM0JNWCdCzf2Jt0LHQotGV0ZUh0ZbRlBXCt0Je0JHQruKAnDcUXkZQ0YvQscKnehLRnNC1KtGK0Ll9BWLigLo/HXXCrhw=\",\r\n    \"1:fmYoHEjQrRbQhz3RiUtm4oCh0JLRmtCLIyU10IzigqzRgGjQmCoR0JFg0YRhwrVzN9CxDUM50KcpdTbRiNCLwpjRkuKAphXRkVxh0JU50K5uWdC50L7RjX0C0KwQRsKp\"\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gateway.scan-interfax.ru/api/v1/documents?auth_key",
+					"protocol": "https",
+					"host": [
+						"gateway",
+						"scan-interfax",
+						"ru"
+					],
+					"path": [
+						"api",
+						"v1",
+						"documents"
+					],
+					"query": [
+						{
+							"key": "auth_key",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{My_key}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "test_login",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "My_key",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "current_balance",
+			"value": ""
+		},
+		{
+			"key": "subjects_total",
+			"value": ""
+		},
+		{
+			"key": "Test_password",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "subjects_name1",
+			"value": ""
+		},
+		{
+			"key": "subjects_name2",
+			"value": ""
+		},
+		{
+			"key": "subjects_name3",
+			"value": ""
+		},
+		{
+			"key": "news_agent_1",
+			"value": ""
+		},
+		{
+			"key": "news_agent_2",
+			"value": ""
+		}
+	]
+}

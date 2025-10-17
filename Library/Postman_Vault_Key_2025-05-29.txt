@@ -1,0 +1,7 @@
+Your Postman Vault Key (smsuek42@gmail.com)
+
+3ba0a4acbad10756e77803798aecfce595d25603e4688a62df455e14e594c2c0
+
+• Keep this key somewhere safe but accessible.
+• Need more information? Visit https://go.pstmn.io/vault
+• This key was generated on: May 29 2025.
