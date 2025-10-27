@@ -1,0 +1,352 @@
+[
+    {
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "year": 1813,
+        "edition_count": 4036,
+        "subject": "fiction"
+    },
+    {
+        "title": "Alice's Adventures in Wonderland",
+        "author": "Lewis Carroll",
+        "year": 1865,
+        "edition_count": 3546,
+        "subject": "fiction"
+    },
+    {
+        "title": "The Picture of Dorian Gray",
+        "author": "Oscar Wilde",
+        "year": 1890,
+        "edition_count": 3006,
+        "subject": "fiction"
+    },
+    {
+        "title": "Wuthering Heights",
+        "author": "Emily Brontë",
+        "year": 1846,
+        "edition_count": 2885,
+        "subject": "fiction"
+    },
+    {
+        "title": "A Christmas Carol",
+        "author": "Charles Dickens",
+        "year": 1843,
+        "edition_count": 2727,
+        "subject": "fiction"
+    },
+    {
+        "title": "Adventures of Huckleberry Finn",
+        "author": "Mark Twain",
+        "year": 1876,
+        "edition_count": 2552,
+        "subject": "fiction"
+    },
+    {
+        "title": "Emma",
+        "author": "Jane Austen",
+        "year": 1815,
+        "edition_count": 2261,
+        "subject": "fiction"
+    },
+    {
+        "title": "Oliver Twist",
+        "author": "Charles Dickens",
+        "year": 1822,
+        "edition_count": 2209,
+        "subject": "fiction"
+    },
+    {
+        "title": "Frankenstein or The Modern Prometheus",
+        "author": "Mary Shelley",
+        "year": 1818,
+        "edition_count": 2184,
+        "subject": "fiction"
+    },
+    {
+        "title": "Hamlet",
+        "author": "William Shakespeare",
+        "year": 1603,
+        "edition_count": 2069,
+        "subject": "fiction"
+    },
+    {
+        "title": "A Tale of Two Cities",
+        "author": "Charles Dickens",
+        "year": 1800,
+        "edition_count": 2059,
+        "subject": "fiction"
+    },
+    {
+        "title": "The Wonderful Wizard of Oz",
+        "author": "L. Frank Baum",
+        "year": 1899,
+        "edition_count": 2052,
+        "subject": "fiction"
+    },
+    {
+        "title": "Sense and Sensibility",
+        "author": "Jane Austen",
+        "year": 1811,
+        "edition_count": 2015,
+        "subject": "fiction"
+    },
+    {
+        "title": "Treasure Island",
+        "author": "Robert Louis Stevenson",
+        "year": 1880,
+        "edition_count": 1984,
+        "subject": "fiction"
+    },
+    {
+        "title": "Little Women",
+        "author": "Louisa May Alcott",
+        "year": 1848,
+        "edition_count": 1887,
+        "subject": "fiction"
+    },
+    {
+        "title": "Gulliver's Travels",
+        "author": "Jonathan Swift",
+        "year": 1726,
+        "edition_count": 1809,
+        "subject": "fiction"
+    },
+    {
+        "title": "The Secret Garden",
+        "author": "Frances Hodgson Burnett",
+        "year": 1911,
+        "edition_count": 1594,
+        "subject": "fiction"
+    },
+    {
+        "title": "Don Quijote de la Mancha",
+        "author": "Miguel de Cervantes Saavedra",
+        "year": 1600,
+        "edition_count": 1589,
+        "subject": "fiction"
+    },
+    {
+        "title": "Madame Bovary",
+        "author": "Gustave Flaubert",
+        "year": 1856,
+        "edition_count": 1557,
+        "subject": "fiction"
+    },
+    {
+        "title": "King Lear",
+        "author": "William Shakespeare",
+        "year": 1608,
+        "edition_count": 1542,
+        "subject": "fiction"
+    },
+    {
+        "title": "Great Expectations",
+        "author": "Charles Dickens",
+        "year": 1861,
+        "edition_count": 1489,
+        "subject": "fiction"
+    },
+    {
+        "title": "A Midsummer Night's Dream",
+        "author": "William Shakespeare",
+        "year": 1600,
+        "edition_count": 1485,
+        "subject": "fiction"
+    },
+    {
+        "title": "A Study in Scarlet",
+        "author": "Arthur Conan Doyle",
+        "year": 1887,
+        "edition_count": 1445,
+        "subject": "fiction"
+    },
+    {
+        "title": "The Art of War",
+        "author": "孙武",
+        "year": 1900,
+        "edition_count": 1433,
+        "subject": "fiction"
+    },
+    {
+        "title": "The Prince",
+        "author": "Niccolò Machiavelli",
+        "year": 1515,
+        "edition_count": 1406,
+        "subject": "fiction"
+    },
+    {
+        "title": "The Call of the Wild",
+        "author": "Jack London",
+        "year": 1903,
+        "edition_count": 1393,
+        "subject": "fiction"
+    },
+    {
+        "title": "Through the Looking-Glass",
+        "author": "Lewis Carroll",
+        "year": 1865,
+        "edition_count": 1378,
+        "subject": "fiction"
+    },
+    {
+        "title": "The Wind in the Willows",
+        "author": "Kenneth Grahame",
+        "year": 1908,
+        "edition_count": 1346,
+        "subject": "fiction"
+    },
+    {
+        "title": "Divina Commedia",
+        "author": "Dante Alighieri",
+        "year": 1472,
+        "edition_count": 1334,
+        "subject": "fiction"
+    },
+    {
+        "title": "Анна Каренина",
+        "author": "Лев Толстой",
+        "year": 1876,
+        "edition_count": 1314,
+        "subject": "fiction"
+    },
+    {
+        "title": "The Hound of the Baskervilles",
+        "author": "Arthur Conan Doyle",
+        "year": 1900,
+        "edition_count": 1308,
+        "subject": "fiction"
+    },
+    {
+        "title": "Anne of Green Gables",
+        "author": "Lucy Maud Montgomery",
+        "year": 1908,
+        "edition_count": 1299,
+        "subject": "fiction"
+    },
+    {
+        "title": "Persuasion",
+        "author": "Jane Austen",
+        "year": 1789,
+        "edition_count": 1235,
+        "subject": "fiction"
+    },
+    {
+        "title": "Julius Caesar",
+        "author": "William Shakespeare",
+        "year": 1656,
+        "edition_count": 1222,
+        "subject": "fiction"
+    },
+    {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "year": 1920,
+        "edition_count": 1174,
+        "subject": "fiction"
+    },
+    {
+        "title": "Jane Eyre",
+        "author": "Charlotte Brontë",
+        "year": 1847,
+        "edition_count": 1170,
+        "subject": "fiction"
+    },
+    {
+        "title": "The Time Machine",
+        "author": "H. G. Wells",
+        "year": 1895,
+        "edition_count": 1154,
+        "subject": "fiction"
+    },
+    {
+        "title": "Walden",
+        "author": "Henry David Thoreau",
+        "year": 1854,
+        "edition_count": 1136,
+        "subject": "fiction"
+    },
+    {
+        "title": "The Adventures of Sherlock Holmes [12 stories]",
+        "author": "Arthur Conan Doyle",
+        "year": 1892,
+        "edition_count": 1132,
+        "subject": "fiction"
+    },
+    {
+        "title": "Moby Dick",
+        "author": "Herman Melville",
+        "year": 1851,
+        "edition_count": 1118,
+        "subject": "fiction"
+    },
+    {
+        "title": "Mansfield Park",
+        "author": "Jane Austen",
+        "year": 1814,
+        "edition_count": 1107,
+        "subject": "fiction"
+    },
+    {
+        "title": "The Man Who Was Thursday",
+        "author": "Gilbert Keith Chesterton",
+        "year": 1908,
+        "edition_count": 1105,
+        "subject": "fiction"
+    },
+    {
+        "title": "Les Trois Mousquetaires",
+        "author": "Alexandre Dumas",
+        "year": 1844,
+        "edition_count": 1101,
+        "subject": "fiction"
+    },
+    {
+        "title": "Ἰλιάς",
+        "author": "Όμηρος",
+        "year": 1505,
+        "edition_count": 1084,
+        "subject": "fiction"
+    },
+    {
+        "title": "Candide",
+        "author": "Voltaire",
+        "year": 1746,
+        "edition_count": 1079,
+        "subject": "fiction"
+    },
+    {
+        "title": "Ὀδύσσεια",
+        "author": "Όμηρος",
+        "year": 1488,
+        "edition_count": 1061,
+        "subject": "fiction"
+    },
+    {
+        "title": "Hard Times",
+        "author": "Charles Dickens",
+        "year": 1854,
+        "edition_count": 1029,
+        "subject": "fiction"
+    },
+    {
+        "title": "The Mysterious Affair at Styles",
+        "author": "Agatha Christie",
+        "year": 1920,
+        "edition_count": 1017,
+        "subject": "fiction"
+    },
+    {
+        "title": "The Legend of Sleepy Hollow",
+        "author": "Washington Irving",
+        "year": 1820,
+        "edition_count": 1017,
+        "subject": "fiction"
+    },
+    {
+        "title": "Northanger Abbey",
+        "author": "Jane Austen",
+        "year": 1818,
+        "edition_count": 1011,
+        "subject": "fiction"
+    }
+]

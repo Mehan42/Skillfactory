@@ -1,0 +1,325 @@
+{
+	"info": {
+		"_postman_id": "a0b283bb-ec01-4a42-b7e1-2b72f9081e1f",
+		"name": "Скотские запрсы",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43345427",
+		"_collection_link": "https://martian-crater-291260.postman.co/workspace/Scotinka~b3a41639-93d8-4d09-beb8-cc84bc3fd0d5/collection/43345427-a0b283bb-ec01-4a42-b7e1-2b72f9081e1f?action=share&source=collection_link&creator=43345427"
+	},
+	"item": [
+		{
+			"name": "api key",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"pm.collectionVariables.set(\"auth_key\", data.key);\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "{{My_key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "auth_key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "msuek@rambler.ru",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "15426378",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Scot}}/api/key",
+					"host": [
+						"{{Scot}}"
+					],
+					"path": [
+						"api",
+						"key"
+					]
+				},
+				"description": "### API Endpoint: Retrieve API Key\n\n#### Method\n\n`GET`\n\n#### URL\n\n`{{Scot}}/api/key`\n\n#### Description\n\nThis endpoint is used to retrieve the API key associated with the user or application. It is essential for authenticating requests to other protected endpoints within the API.\n\n#### Request Parameters\n\nThis endpoint does not require any input parameters.\n\n#### Response Structure\n\nOn a successful request, the API will return a JSON object with the following structure:\n\n- **key**: A string representing the API key. This key is necessary for authenticating subsequent API requests.\n    \n\n#### Response Example\n\n``` json\n{\n  \"key\": \"\"\n}\n\n ```\n\nThe response will have a status code of `200` indicating that the request was successful."
+			},
+			"response": []
+		},
+		{
+			"name": "create_pet_simple",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"pm.collectionVariables.set(\"petid\", data.id);\r",
+							"pm.collectionVariables.set(\"name\", data.name);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth_key",
+						"value": "{{auth_key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"{{name}}\",\r\n  \"animal_type\": \"{{animal_type}}\",\r\n  \"age\": \"{{age}}\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Scot}}/api/create_pet_simple",
+					"host": [
+						"{{Scot}}"
+					],
+					"path": [
+						"api",
+						"create_pet_simple"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rename",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Name was updated\", function () {\r",
+							"    const oldName = pm.collectionVariables.get(\"name\");\r",
+							"    pm.expect(data.name).to.not.equal(oldName);\r",
+							"});\r",
+							"\r",
+							"// Обновим переменную name на новое значение\r",
+							"pm.collectionVariables.set(\"name\", data.name);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "auth_key",
+						"value": "{{auth_key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"{{new_name}}\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Scot}}/api/pets/{{petid}}",
+					"host": [
+						"{{Scot}}"
+					],
+					"path": [
+						"api",
+						"pets",
+						"{{petid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Pet name was updated\", function () {\r",
+							"    const expectedName = pm.collectionVariables.get(\"name\");\r",
+							"    pm.expect(data.pets[0].name).to.eql(expectedName);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth_key",
+						"value": "{{auth_key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Scot}}/api/pets",
+					"host": [
+						"{{Scot}}"
+					],
+					"path": [
+						"api",
+						"pets"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Scot",
+			"value": "https://petfriends.skillfactory.ru/",
+			"type": "default"
+		},
+		{
+			"key": "auth_key",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "petid",
+			"value": ""
+		},
+		{
+			"key": "name",
+			"value": ""
+		}
+	]
+}

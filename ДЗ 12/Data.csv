@@ -1,0 +1,9 @@
+﻿test_login,test_password,test_type
+sf_student7,P6VcKNf,positive
+another_valid_login,another_valid_password,positive
+yet_another_valid_login,yet_another_valid_password,positive
+wrong_login,P6VcKNf,negative
+sf_student7,wrong_password,negative
+empty_login,,negative
+,empty_password,negative
+invalid_user,invalid_pass,negative
